@@ -3,6 +3,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+
+class WrongIndexException extends RuntimeException
+{
+    WrongIndexException(String message)
+    {
+        System.out.println(message);
+    }
+}
         public class Main
         {
 
@@ -23,8 +31,7 @@ import java.util.Scanner;
                     index = scanner1.nextInt();
                     if(index > number)
                     {
-                        bitvector = new BitVector(index + 1);
-
+                        throw new WrongIndexException("Wrong index");
                     }
                     System.out.println("please enter the operation 1 - for set, 2 - for reset, 0 - for ending the program");
                     operation = sc.nextInt();
